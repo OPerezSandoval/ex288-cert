@@ -1,8 +1,6 @@
+
 ---
-
 # Question 3: Customize S2I Builder Image Scripts
-
-## Question
 
 In concert with the source code from `http://git.ocp4.example.com/developer/oxy.git`, customize the behavior of the existing `httpd-24` builder image scripts to deploy an application that meets the following requirements:
 
