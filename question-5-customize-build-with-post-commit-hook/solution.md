@@ -267,12 +267,7 @@ except Exception as e:
 oc set build-hook bc/blog --post-commit --script="python3 mailer.py && echo 'Done'"
 ```
 
-### 2. Use Pre-Build Hook (runs before build)
-```bash
-oc set build-hook bc/blog --pre-build --script="echo 'Starting build'"
-```
-
-### 3. Remove Build Hook
+### 2. Remove Build Hook
 ```bash
 oc set build-hook bc/blog --post-commit --remove
 ```

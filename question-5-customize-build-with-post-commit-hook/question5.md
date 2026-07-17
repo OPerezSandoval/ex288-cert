@@ -14,7 +14,7 @@ Customize the application such that the following statements are true:
 - Future rebuilds of the application will trigger the script to run
 - The original Git repository used to create the application has not been modified by you
 
-***The mail doesnt have to send just make sure that the script executes after the script**
+***The mail doesnt have to send just make sure that the script executes after the build**
 
 ---
 
