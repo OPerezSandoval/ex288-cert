@@ -15,4 +15,4 @@ Practice questions for the EX288 (Red Hat Certified Advanced Developer in Cloud-
 | 7 | Working with OpenShift Templates | [question-7-working-with-openshift-templates](question-7-working-with-openshift-templates) |
 | 8 | Deploy an Application Using Helm | [question-8-deploy-application-using-helm](question-8-deploy-application-using-helm) |
 | 9 | Open the Internal Image Registry | [question-9-open-internal-image-registry](question-9-open-internal-image-registry) |
-| 10 | OpenShift Pipelines | [question-10](question-10) |
+| 10 | Build and Deploy with OpenShift Pipelines and Triggers | [question-10-openshift-pipelines-and-triggers](question-10-openshift-pipelines-and-triggers) |

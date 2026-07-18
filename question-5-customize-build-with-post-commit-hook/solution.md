@@ -25,6 +25,13 @@ oc get bc/blog -o yaml | grep "image:"
 ---
 
 ### Step 3: Set the Post-Commit Build Hook
+**Use --script:**
+```bash
+oc set build-hook bc/blog \
+  --post-commit \
+  --script="python3 mailer.py"
+```
+**Or path `/opt/app-root/bin/python3`:**
 ```bash
 oc set build-hook bc/blog \
   --post-commit \
@@ -36,13 +43,6 @@ oc set build-hook bc/blog \
 oc set build-hook bc/blog \
   --post-commit \
   --command -- python3 mailer.py
-```
-
-**Or use --script (simpler):**
-```bash
-oc set build-hook bc/blog \
-  --post-commit \
-  --script="python3 mailer.py"
 ```
 
 ---
