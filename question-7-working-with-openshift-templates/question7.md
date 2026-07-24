@@ -95,8 +95,6 @@ php-greeting-app/
 
 ### Step 5: Create the Template File (For Materials Server)
 
-This simulates the template that would be downloaded from `/materials directory`.
-
 **Create a materials directory:**
 ```bash
 mkdir -p ~/materials
@@ -259,10 +257,19 @@ EOF
 
 ### Step 6: Make Template Available (Simulate Materials Server)
 
-For exam simulation, we'll serve this file locally:
+Create a deployment to serve the file (choose any project default is fine):
 ```bash
-Just keep it in ~/materials for students to copy
-# Students will use: wget file:///home/student/materials/php-app.yaml
+oc new-app --name=fileserver registry.access.redhat.com/ubi9/httpd-24
+oc expose svc/fileserver
+```
+
+Create a configmap and mount it to the deployment:
+```bash
+oc create configmap php-materials --from-file=php-app.yaml
+
+oc set volume deploy/fileserver --add --name=content \
+  --type=configmap --configmap-name=php-materials \
+  --mount-path=/var/www/html/files
 ```
 
 ---

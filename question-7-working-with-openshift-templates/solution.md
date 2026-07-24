@@ -10,7 +10,7 @@ oc new-project indy
 ### Step 2: Download the Template
 ```bash
 cd ~
-wget file:///home/student/materials/php-app.yaml #this is may be a link provided by redhat 
+wget http://fileserver-openshift-console.apps.ocp4.example.com/files/php-app.yaml #this is may be a link provided by redhat 
 ```
 
 **If the materials server isn't available, copy from setup:**
