@@ -2,7 +2,7 @@
 
 ## Question
 
-Using the PHP+MySQL template from `/materials directory`, deploy an application that meets the following requirements:
+Using the PHP+MySQL template from `fileserver-default.apps.ocp4.example.com/files`, deploy an application that meets the following requirements:
 
 - The application is part of a project named: **indy**
 - The template is named: **ex288-php-mysql**

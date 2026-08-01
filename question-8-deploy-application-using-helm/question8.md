@@ -8,7 +8,7 @@ Deploy an application using Helm that meets the following requirements:
 - The application is part of a project named: **exam-resource**
 - The application is named: **exam-api**
 - The application is available at `http://exam-api-exam-resource.apps.ocp4.example.com`
-- The application is deployed on **2 nodes** (replicas)
+- The application is deployed on **2 replicas** 
 - The application configures **livenessProbe** and **readinessProbe** for `/q/health`
 - The label **tag** is set to **latest**
 - The chart version is **0.3.22**
