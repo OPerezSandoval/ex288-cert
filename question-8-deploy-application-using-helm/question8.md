@@ -12,11 +12,11 @@ Deploy an application using Helm that meets the following requirements:
 - The application configures **livenessProbe** and **readinessProbe** for `/q/health`
 - The label **tag** is set to **latest**
 - The chart version is **0.3.22**
-- The project chart is located at `/home/devop/exam-api`
+- The project chart is located at `/home/devops/exam-api`
 - The Helm chart uses **range** to iterate through environment variables from `values.yaml`
 - The Helm chart uses **if statement** to conditionally set resources based on environment (prod/dev/qa)
 
-**Note:** The application image runs at port **8080/TCP**
+**Note:** The application image runs on port **8080/TCP** & a route yaml is provided at `/home/devops/exam-api`
 
 ---
 
@@ -270,26 +270,48 @@ ingress:
           pathType: ImplementationSpecific
   tls: []
 
-resources: {}
+# Environment-specific settings
+environment: prod
+
+# Environment variables to inject into pods (will iterate with range)
+env:
+  - name: ENVIRONMENT
+    value: "prod"
+  - name: API_KEY
+    value: "prod-secret-key-12345"
+  - name: DB_HOST
+    value: "postgres-prod.example.com"
+  - name: APP_VERSION
+    value: "1.0.0"
+
+# Resource limits based on environment
+resources:
+  prod:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 250m
+      memory: 256Mi
+  dev:
+    limits:
+      cpu: 200m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  qa:
+    limits:
+      cpu: 300m
+      memory: 384Mi
+    requests:
+      cpu: 150m
+      memory: 192Mi
 
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
-
-# Environment-specific settings
-environment: dev
-
-# Environment variables to inject into pods
-env:
-  - name: ENVIRONMENT
-    value: "dev"
-  - name: API_KEY
-    value: "default-key"
-  - name: DB_HOST
-    value: "localhost"
-  - name: APP_VERSION
-    value: "1.0.0"
 EOF
 ```
